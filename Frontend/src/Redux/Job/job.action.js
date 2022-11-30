@@ -4,7 +4,7 @@ import axios from "axios"
 export const jobPost=(data)=>(dispatch)=>{
     console.log(data)
     dispatch({type:types.POST_REQUEST})
-    return axios.post("https://masaijobapi.herokuapp.com/job/create",data)
+    return axios.post("https://job-app-9d0y.onrender.com/job/create",data)
     .then((res)=>{
         dispatch({type:types.POST_SUCCESS,payload:res.data})
     }).catch((err)=>{
@@ -14,7 +14,7 @@ export const jobPost=(data)=>(dispatch)=>{
 export const jobGET=(filterbyRole,sortbyDate,page)=>(dispatch)=>{
     // console.log(filterbyRole,sortbyDate,page)
     dispatch({type:types.GET_REQUEST})
-    return axios.get(`https://masaijobapi.herokuapp.com/job/?limit=${10}&page=${page}&filterbyRole=${filterbyRole}&sortbyDate=${sortbyDate}`)
+    return axios.get(`https://job-app-9d0y.onrender.com/job/?limit=${10}&page=${page}&filterbyRole=${filterbyRole}&sortbyDate=${sortbyDate}`)
     .then((res)=>{
         dispatch({type:types.GET_SUCCESS,payload:res.data})
     }).catch((err)=>{
